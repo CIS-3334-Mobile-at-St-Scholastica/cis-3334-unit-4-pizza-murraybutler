@@ -5,8 +5,12 @@ import android.os.Handler;
 import java.util.ArrayList;
 import java.util.List;
 
+// Pizza class import
+import css.cis3334.pizzaorder.Pizza;
+
 /**
  * Created by tgibbons on 2/10/2017.
+ * Update by mbutler 2/11/18
  */
 public class PizzaOrder implements PizzaOrderInterface {
 
@@ -22,15 +26,16 @@ public class PizzaOrder implements PizzaOrderInterface {
     }
 
     @Override
-    public String OrderPizza(String topping, String strSize, boolean extraCheese){
-        Pizza.pizzaSize size;
-        if (strSize.equalsIgnoreCase("small")) {
-            size = Pizza.pizzaSize.SMALL;
-        } else  if (strSize.equalsIgnoreCase("medium")) {
-            size = Pizza.pizzaSize.MEDIUM;
+    public String OrderPizza(String topping, @Pizza.pizzaSize String size, boolean extraCheese){
+        // Commented out because I used the StringDef from Pizza to do this
+        /* Pizza.pizzaSize size;
+        if (size == Pizza.SMALL) {
+            size = Pizza.SMALL;
+        } else  if (size == Pizza.) {
+            size = Pizza.MEDIUM;
         } else {
-            size = Pizza.pizzaSize.LARGE;
-        }
+            size = Pizza.LARGE;
+        } */
         Pizza newPizza = new Pizza(topping, size, extraCheese);
         pizzasInOrder.add(newPizza);
         view.updateOrderStatusInView(newPizza.toString() + " added to order");
@@ -51,15 +56,16 @@ public class PizzaOrder implements PizzaOrderInterface {
     }
 
     @Override
-    public Double getPrice(Pizza.pizzaSize size) {
+    public Double getPrice(@Pizza.pizzaSize String size) {
         Double price = 0.0;
-        if (size == Pizza.pizzaSize.SMALL) {
+
+        if (size == Pizza.SMALL) {
             price = Pizza.SMALL_PRICE;
         }
-        if (size == Pizza.pizzaSize.MEDIUM) {
+        if (size == Pizza.MEDIUM) {
             price =  Pizza.MEDIUM_PRICE;
         }
-        if (size == Pizza.pizzaSize.LARGE) {
+        if (size == Pizza.LARGE) {
             price = Pizza.LARGE_PRICE;
         }
         return price;

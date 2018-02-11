@@ -12,29 +12,33 @@
     tools:context="css.cis3334.pizzaorder.MainActivity">
 
     <RadioGroup
+        android:id="@+id/sizeGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <RadioButton
-            android:text="@string/small_pizza"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/radioButtonSmall"
-            android:layout_weight="1" />
-
-        <RadioButton
-            android:text="@string/mediumpizza"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/small_pizza"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
             android:id="@+id/radioButtonMedium"
-            android:layout_weight="1" />
-
-        <RadioButton
-            android:text="@string/large_pizza"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mediumpizza"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
             android:id="@+id/radioButtonLarge"
-            android:layout_weight="1" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/large_pizza"
+            android:onClick="onRadioButtonClicked"/>
 
     </RadioGroup>
 
